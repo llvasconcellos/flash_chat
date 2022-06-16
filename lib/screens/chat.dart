@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
 
 class Chat extends StatefulWidget {
+  static String id = 'chat';
+
   const Chat({Key? key}) : super(key: key);
 
   @override
