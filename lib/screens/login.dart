@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/components/custom_text_field.dart';
+
+import 'chat.dart';
 
 class Login extends StatefulWidget {
   static String id = 'login';
@@ -13,6 +17,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _auth = FirebaseAuth.instance;
+  String _email = '';
+  String _password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +43,7 @@ class _LoginState extends State<Login> {
               keyboardType: TextInputType.emailAddress,
               hintText: 'Enter your email.',
               onChanged: (value) {
-                //Do something with the user input.
+                _email = value;
               },
             ),
             const SizedBox(height: 8),
@@ -43,15 +51,24 @@ class _LoginState extends State<Login> {
               obscureText: true,
               hintText: 'Enter your password.',
               onChanged: (value) {
-                //Do something with the user input.
+                _password = value;
               },
             ),
             const SizedBox(height: 24),
             RoundedButton(
               color: Colors.lightBlueAccent,
               text: 'Log In',
-              onPressed: () {
-                //Implement login functionality.
+              onPressed: () async {
+                try {
+                  final newUser = await _auth.signInWithEmailAndPassword(
+                      email: _email, password: _password);
+                  if (!mounted) return;
+                  Navigator.pushNamed(context, Chat.id);
+                } catch(e){
+                  if (kDebugMode) {
+                    print(e);
+                  }
+                }
               },
             ),
           ],
