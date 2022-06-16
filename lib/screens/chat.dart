@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flash_chat/constants.dart';
 
@@ -12,6 +14,32 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  final _auth = FirebaseAuth.instance;
+  late final User _loggedInUser;
+
+  void getCurrentUser() {
+    try {
+      final user = _auth.currentUser;
+      if (user != null) {
+        _loggedInUser = user;
+        if (kDebugMode) {
+          print(_loggedInUser.email);
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCurrentUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -32,17 +32,19 @@ class _LoginState extends State<Login> {
             ),
             const SizedBox(height: 48),
             CustomTextField(
+              keyboardType: TextInputType.emailAddress,
+              hintText: 'Enter your email.',
               onChanged: (value) {
                 //Do something with the user input.
               },
-              hintText: 'Enter your email.',
             ),
             const SizedBox(height: 8),
             CustomTextField(
-                 onChanged: (value) {
-                  //Do something with the user input.
-                },
-                hintText: 'Enter your password.',
+              obscureText: true,
+              hintText: 'Enter your password.',
+              onChanged: (value) {
+                //Do something with the user input.
+              },
             ),
             const SizedBox(height: 24),
             RoundedButton(
