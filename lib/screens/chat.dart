@@ -35,7 +35,6 @@ class _ChatState extends State<Chat> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
