@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flash_chat/components/rounded_button.dart';
+
 class Login extends StatefulWidget {
   static String id = 'login';
 
@@ -76,21 +78,12 @@ class _LoginState extends State<Login> {
               ),
             ),
             const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Material(
-                color: Colors.lightBlueAccent,
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                elevation: 5,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Implement login functionality.
-                  },
-                  minWidth: 200,
-                  height: 42,
-                  child: const Text('Log In'),
-                ),
-              ),
+            RoundedButton(
+              color: Colors.lightBlueAccent,
+              text: 'Log In',
+              onPressed: () {
+                //Implement login functionality.
+              },
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flash_chat/screens/login.dart';
 import 'package:flash_chat/screens/registration.dart';
 
@@ -83,37 +84,19 @@ class _WelcomeState extends State<Welcome> with SingleTickerProviderStateMixin {
             const SizedBox(
               height: 48,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Material(
-                elevation: 5,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Login.id);
-                  },
-                  minWidth: 200,
-                  height: 42,
-                  child: const Text('Log In'),
-                ),
-              ),
+            RoundedButton(
+              color: Colors.lightBlueAccent,
+              text: 'Log In',
+              onPressed: () {
+                Navigator.pushNamed(context, Login.id);
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30),
-                elevation: 5,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Registration.id);
-                  },
-                  minWidth: 200,
-                  height: 42,
-                  child: const Text('Register'),
-                ),
-              ),
+            RoundedButton(
+              color: Colors.blueAccent,
+              text: 'Register',
+              onPressed: () {
+                Navigator.pushNamed(context, Registration.id);
+              },
             ),
           ],
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flash_chat/components/rounded_button.dart';
+
 class Registration extends StatefulWidget {
   static String id = 'registration';
 
@@ -70,24 +72,12 @@ class _RegistrationState extends State<Registration> {
               ),
             ),
             const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                elevation: 5,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Implement registration functionality.
-                  },
-                  minWidth: 200,
-                  height: 42,
-                  child: const Text(
-                    'Register',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
+            RoundedButton(
+              color: Colors.blueAccent,
+              text: 'Register',
+              onPressed: () {
+                //Implement registration functionality.
+              },
             ),
           ],
         ),
