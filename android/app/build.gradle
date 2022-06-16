@@ -21,6 +21,11 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def flutterMinSdkVersion = localProperties.getProperty('flutter.minSdkVersion').toInteger()
+if (flutterMinSdkVersion == null) {
+    flutterMinSdkVersion = 19
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
@@ -48,10 +53,11 @@ android {
         applicationId "br.com.devhouse.flashchat"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion flutterMinSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -70,4 +76,5 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation "androidx.multidex:multidex:2.0.1"
 }
