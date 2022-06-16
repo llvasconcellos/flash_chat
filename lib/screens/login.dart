@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flash_chat/components/rounded_button.dart';
+import 'package:flash_chat/components/custom_text_field.dart';
 
 class Login extends StatefulWidget {
   static String id = 'login';
@@ -30,52 +31,18 @@ class _LoginState extends State<Login> {
               ),
             ),
             const SizedBox(height: 48),
-            TextField(
+            CustomTextField(
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: const InputDecoration(
-                hintText: 'Enter your email',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-              ),
+              hintText: 'Enter your email.',
             ),
             const SizedBox(height: 8),
-            TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
-              decoration: const InputDecoration(
+            CustomTextField(
+                 onChanged: (value) {
+                  //Do something with the user input.
+                },
                 hintText: 'Enter your password.',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Colors.lightBlueAccent, width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-              ),
             ),
             const SizedBox(height: 24),
             RoundedButton(

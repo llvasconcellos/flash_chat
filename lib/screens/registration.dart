@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flash_chat/components/rounded_button.dart';
+import 'package:flash_chat/components/custom_text_field.dart';
 
 class Registration extends StatefulWidget {
   static String id = 'registration';
@@ -28,48 +29,18 @@ class _RegistrationState extends State<Registration> {
               child: Image.asset('assets/images/logo.png')),
             ),
             const SizedBox(height: 48),
-            TextField(
+            CustomTextField(
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: const InputDecoration(
-                hintText: 'Enter your email',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-              ),
+              hintText: 'Enter your email.',
             ),
             const SizedBox(height: 8),
-            TextField(
+            CustomTextField(
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: const InputDecoration(
-                hintText: 'Enter your password',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                ),
-              ),
+              hintText: 'Enter your password.',
             ),
             const SizedBox(height: 24),
             RoundedButton(
