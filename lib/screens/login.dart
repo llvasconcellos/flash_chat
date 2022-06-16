@@ -22,7 +22,10 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             SizedBox(
               height: 200,
-              child: Image.asset('assets/images/logo.png'),
+              child: Hero(
+                tag: 'logo',
+                child: Image.asset('assets/images/logo.png'),
+              ),
             ),
             const SizedBox(height: 48),
             TextField(
