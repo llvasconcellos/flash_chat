@@ -35,11 +35,13 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: 200,
+              Flexible(
                 child: Hero(
                   tag: 'logo',
-                  child: Image.asset('assets/images/logo.png'),
+                  child: SizedBox(
+                    height: 200,
+                    child: Image.asset('assets/images/logo.png'),
+                  ),
                 ),
               ),
               const SizedBox(height: 48),
@@ -63,18 +65,18 @@ class _LoginState extends State<Login> {
                 color: Colors.lightBlueAccent,
                 text: 'Log In',
                 onPressed: () async {
-                  setState((){
+                  setState(() {
                     _showSpinner = true;
                   });
                   try {
                     final newUser = await _auth.signInWithEmailAndPassword(
                         email: _email, password: _password);
-                    setState((){
+                    setState(() {
                       _showSpinner = false;
                       if (!mounted) return;
                       Navigator.pushNamed(context, Chat.id);
                     });
-                  } catch(e){
+                  } catch (e) {
                     if (kDebugMode) {
                       print(e);
                     }

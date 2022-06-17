@@ -34,10 +34,14 @@ class _RegistrationState extends State<Registration> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(
-                height: 200,
+              Flexible(
                 child: Hero(
-                    tag: 'logo', child: Image.asset('assets/images/logo.png')),
+                  tag: 'logo',
+                  child: SizedBox(
+                    height: 200,
+                    child: Image.asset('assets/images/logo.png'),
+                  ),
+                ),
               ),
               const SizedBox(height: 48),
               CustomTextField(
@@ -60,18 +64,18 @@ class _RegistrationState extends State<Registration> {
                 color: Colors.blueAccent,
                 text: 'Register',
                 onPressed: () async {
-                  setState((){
+                  setState(() {
                     _showSpinner = true;
                   });
                   try {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: _email, password: _password);
-                    setState((){
+                    setState(() {
                       _showSpinner = false;
                       if (!mounted) return;
                       Navigator.pushNamed(context, Chat.id);
                     });
-                  } catch(e){
+                  } catch (e) {
                     if (kDebugMode) {
                       print(e);
                     }

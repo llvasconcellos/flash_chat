@@ -19,11 +19,7 @@ class FlashChat extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.dark().copyWith(
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.black54),
-        ),
-      ),
+      theme: ThemeData.dark(),
       initialRoute: Welcome.id,
       routes: {
         Welcome.id: (context) => const Welcome(),
